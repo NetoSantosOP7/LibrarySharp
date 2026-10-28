@@ -1,0 +1,1223 @@
+﻿/* ============================================================
+   BIBLIOTECA — identidade visual v5
+   Conceito: Interface clean e minimalista inspirada em apps modernos
+   Fundo bege suave, cards brancos limpos, sem brilhos excessivos.
+   Design focado nos livros, mantendo o efeito 3D intacto.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-primary: #e8e3d8;    /* bege claro suave - fundo principal */
+    --bg-secondary: #f5f2ec;  /* bege muito claro - cards/painéis */
+    --bg-white: #ffffff;      /* branco puro - cards de livros */
+    --text-primary: #2d2a26;  /* marrom escuro quente - texto principal */
+    --text-secondary: #6b665e; /* marrom acinzentado - texto secundário */
+    --text-light: #9c9791;    /* cinza quente - texto terciário */
+    --accent: #d4a574;        /* caramelo/dourado suave - destaques */
+    --accent-hover: #c49563;  /* caramelo mais escuro - hover */
+    --border: #d9d4ca;        /* bege médio - bordas sutis */
+    --shadow-sm: 0 2px 8px rgba(45, 42, 38, 0.08);
+    --shadow-md: 0 4px 16px rgba(45, 42, 38, 0.12);
+    --shadow-lg: 0 8px 24px rgba(45, 42, 38, 0.15);
+    /* Cores dos livros - NÃO ALTERAR */
+    --wine: #7c2d3b;          /* vermelho vinho - lombada */
+    --wine-dark: #5e202b;     /* vinho escuro - capa genérica */
+    --gold: #fbbf24;          /* dourado - bordas dos livros */
+    --angulo-capa: -24deg;
+    --espessura-lombada: 24px;
+    --tilt-topo: 9deg;
+}
+
+/* ---------- base ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Display", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container centralizado e limpo */
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Painel principal - estilo minimalista */
+main[role="main"] {
+    max-width: 1500px;
+    margin: 2rem auto;
+    padding: 3rem 2.5rem;
+    background-color: var(--bg-secondary);
+    border-radius: 24px;
+    box-shadow: var(--shadow-md);
+}
+
+/* Cabeçalho da página - centralizado */
+.page-header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    padding-bottom: 2rem;
+}
+
+h1, h2, h3 {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+h1 {
+    font-size: 2.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+/* Botão de ação no header */
+.page-header .btn {
+    margin-top: 0.5rem;
+}
+
+.card-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* ---------- navbar ---------- */
+
+.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(45, 42, 38, 0.06);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    color: var(--text-primary) !important;
+    font-size: 1.5rem;
+    letter-spacing: -0.04em;
+}
+
+.navbar .nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    margin: 0 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: var(--text-primary) !important;
+    background-color: var(--bg-secondary);
+}
+
+/* ---------- rodapé ---------- */
+
+footer.footer {
+    background-color: #ffffff;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary) !important;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    z-index: 1;
+    position: static !important;
+    bottom: auto !important;
+    width: auto !important;
+}
+
+footer.footer a {
+    color: var(--accent);
+}
+
+footer.footer a:hover {
+    color: var(--accent-hover);
+}
+
+/* ---------- botões ---------- */
+
+.btn {
+    font-family: "Inter", -apple-system, sans-serif;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 0.75rem 1.75rem;
+    border: none;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(212, 165, 116, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    border: 1.5px solid var(--border);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--accent);
+}
+
+.btn-outline-secondary {
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    background: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    color: #ffffff;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background-color: transparent;
+    border: 1.5px solid #dc3545;
+    color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+/* ---------- grid de livros (cards) ---------- */
+
+.row {
+    justify-content: center;
+    gap: 1.25rem;
+    margin: 0 -1rem;
+    margin-top: 0.5rem; /* Espaçamento adicional do header */
+}
+
+/* Card clean e minimalista - inspirado na imagem */
+.card {
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    overflow: visible;
+    perspective: 1000px;
+    transition: all 0.3s ease;
+    margin-bottom: -1.5rem; /* Espaçamento entre linhas de cards */
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+/* ---------- livro 3D (capa + lombada com dobradiça) ---------- */
+/* Requer envolver a <img> com <div class="capa-3d" data-titulo="..."> no Index.cshtml — ver instruções */
+
+.capa-3d {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    transform-style: preserve-3d;
+    transform-origin: left bottom; /* dobradiça na base esquerda, livro "apoiado" */
+    transform: rotateX(var(--tilt-topo)) rotateY(var(--angulo-capa));
+    transition: transform 0.5s cubic-bezier(.22, .9, .32, 1);
+}
+
+.card:hover .capa-3d {
+    transform: rotateX(0deg) rotateY(0deg); /* de frente 100% no hover, sem inclinação nenhuma */
+}
+
+.capa-3d img.card-img-top {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px 14px 0 0;
+    border-bottom: 4px solid var(--gold);
+    background-color: #e4d9c2; /* aparece se a capa não carregar */
+    box-shadow: 6px 10px 20px rgba(28, 27, 42, 0.35);
+    backface-visibility: hidden;
+}
+
+/* capa genérica quando o livro não tem imagem cadastrada */
+
+.capa-3d .capa-generica {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.2rem;
+    background: linear-gradient(160deg, var(--wine), var(--wine-dark));
+    border-radius: 2px 14px 0 0;
+    border-bottom: 4px solid var(--gold);
+    box-shadow: 6px 10px 20px rgba(28, 27, 42, 0.35);
+    backface-visibility: hidden;
+}
+
+.capa-3d .capa-generica span {
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+/* bloco de páginas no topo — mesma lógica de dobradiça da lombada, só que no eixo X */
+
+.capa-3d::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 94%;
+    height: var(--espessura-lombada);
+    transform-origin: top center;
+    transform: rotateX(90deg);
+    background: #efe6d0;
+    box-shadow: inset 0 -6px 8px rgba(0, 0, 0, 0.25), inset 0 2px 3px rgba(0, 0, 0, 0.15);
+    border-radius: 0px 0px 5px 0;
+}
+
+.capa-3d::before {
+    content: attr(data-titulo);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--espessura-lombada);
+    height: 100%;
+    background: var(--wine);
+    transform-origin: left center;
+    transform: rotateY(-90deg); /* perpendicular à capa, formando o "L" do livro */
+    writing-mode: vertical-rl;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem 0;
+    box-shadow: inset -6px 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 2px 0 0 2px;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 1.25rem 0.5rem 0.75rem;
+}
+
+.card-title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* ---------- formulários (Criar / Editar) ---------- */
+
+.mb-3 > label {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    background-color: #ffffff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.form-control:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: var(--text-light);
+}
+
+input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--accent);
+    vertical-align: middle;
+}
+
+input[type="file"].form-control {
+    border: 2px dashed var(--border);
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+}
+
+input[type="file"].form-control:hover {
+    border-color: var(--accent);
+}
+
+/* ---------- página de detalhes ---------- */
+
+.col-md-4 > img.img-fluid {
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    border-radius: 12px;
+}
+
+.col-md-8 p {
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.col-md-8 p strong {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-right: 0.5rem;
+}
+
+/* ---------- melhorias gerais ---------- */
+
+/* Espaçamento e responsividade do grid */
+.row.g-4 {
+    margin: 0 auto;
+    max-width: 100%;
+    padding-top: 0.5rem;
+}
+
+/* Espaçamento vertical entre cards */
+.col-md-3.mb-4 {
+    margin-bottom: 1.25rem !important;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Seleção de texto personalizada */
+::selection {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* Barra de rolagem minimalista */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main[role="main"] {
+        padding: 3rem 2.5rem 5rem;
+        margin: 1rem;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .page-header {
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+        max-width: 1500px;
+    }
+
+    .row {
+        gap: 1rem;
+    }
+
+    .col-md-3.mb-4 {
+        margin-bottom: 1rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .row > .col-md-3 {
+        flex: 0 0 calc(25% - 0.94rem);
+        max-width: calc(25% - 0.94rem);
+    }
+}
+
+/* ============================================================
+   BIBLIOTECA — identidade visual v5
+   Conceito: Interface clean e minimalista inspirada em apps modernos
+   Fundo bege suave, cards brancos limpos, sem brilhos excessivos.
+   Design focado nos livros, mantendo o efeito 3D intacto.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-primary: #e8e3d8; /* bege claro suave - fundo principal */
+    --bg-secondary: #f5f2ec; /* bege muito claro - cards/painéis */
+    --bg-white: #ffffff; /* branco puro - cards de livros */
+    --text-primary: #2d2a26; /* marrom escuro quente - texto principal */
+    --text-secondary: #6b665e; /* marrom acinzentado - texto secundário */
+    --text-light: #9c9791; /* cinza quente - texto terciário */
+    --accent: #d4a574; /* caramelo/dourado suave - destaques */
+    --accent-hover: #c49563; /* caramelo mais escuro - hover */
+    --border: #d9d4ca; /* bege médio - bordas sutis */
+    --shadow-sm: 0 2px 8px rgba(45, 42, 38, 0.08);
+    --shadow-md: 0 4px 16px rgba(45, 42, 38, 0.12);
+    --shadow-lg: 0 8px 24px rgba(45, 42, 38, 0.15);
+    /* Cores dos livros - NÃO ALTERAR */
+    --wine: #7c2d3b; /* vermelho vinho - lombada */
+    --wine-dark: #5e202b; /* vinho escuro - capa genérica */
+    --gold: #fbbf24; /* dourado - bordas dos livros */
+    --angulo-capa: -24deg;
+    --espessura-lombada: 24px;
+    --tilt-topo: 9deg;
+}
+
+/* ---------- base ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Display", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container centralizado e limpo */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Painel principal - estilo minimalista */
+main[role="main"] {
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 3rem 2.5rem;
+    background-color: var(--bg-secondary);
+    border-radius: 24px;
+    box-shadow: var(--shadow-md);
+}
+
+/* Cabeçalho da página - centralizado */
+.page-header {
+    text-align: center;
+    margin-bottom: -3.5rem;
+    padding-bottom: 2rem;
+}
+
+h1, h2, h3 {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+h1 {
+    font-size: 2.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+/* Botão de ação no header */
+.page-header .btn {
+    margin-top: 0.5rem;
+}
+
+.card-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    a:hover {
+        color: var(--accent-hover);
+    }
+
+/* ---------- navbar ---------- */
+
+.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(45, 42, 38, 0.06);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    color: var(--text-primary) !important;
+    font-size: 1.5rem;
+    letter-spacing: -0.04em;
+}
+
+.navbar .nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    margin: 0 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+    .navbar .nav-link:hover {
+        color: var(--text-primary) !important;
+        background-color: var(--bg-secondary);
+    }
+
+/* ---------- rodapé ---------- */
+
+footer.footer {
+    background-color: #ffffff;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary) !important;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+    footer.footer a {
+        color: var(--accent);
+    }
+
+        footer.footer a:hover {
+            color: var(--accent-hover);
+        }
+
+/* ---------- botões ---------- */
+
+.btn {
+    font-family: "Inter", -apple-system, sans-serif;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 0.75rem 1.75rem;
+    border: none;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(212, 165, 116, 0.25);
+}
+
+    .btn-primary:hover {
+        background-color: var(--accent-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+    }
+
+.btn-secondary {
+    background-color: #ffffff;
+    border: 1.5px solid var(--border);
+    color: var(--text-primary);
+}
+
+    .btn-secondary:hover {
+        background-color: var(--bg-secondary);
+        border-color: var(--accent);
+    }
+
+.btn-outline-secondary {
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    background: transparent;
+}
+
+    .btn-outline-secondary:hover {
+        background-color: var(--accent);
+        color: #ffffff;
+    }
+
+.btn-warning {
+    background-color: #f0ad4e;
+    color: #ffffff;
+}
+
+    .btn-warning:hover {
+        background-color: #ec971f;
+        transform: translateY(-1px);
+    }
+
+.btn-danger {
+    background-color: transparent;
+    border: 1.5px solid #dc3545;
+    color: #dc3545;
+}
+
+    .btn-danger:hover {
+        background-color: #dc3545;
+        color: #ffffff;
+    }
+
+/* ---------- grid de livros (cards) ---------- */
+
+.row {
+    justify-content: center; /* AJUSTE: centraliza o grupo de cards quando não preenche a linha toda */
+    gap: 1.25rem;
+    margin: 0 -1rem;
+    margin-top: 0.5rem; /* Espaçamento adicional do header */
+    padding-bottom: 2.5rem; /* AJUSTE: respiro extra pro livro 3D não vazar sobre o rodapé */
+}
+
+/* Card clean e minimalista - inspirado na imagem */
+.card {
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    overflow: visible;
+    perspective: 1000px;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem; /* Espaçamento entre linhas de cards */
+}
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--accent);
+    }
+
+/* ---------- livro 3D (capa + lombada com dobradiça) ---------- */
+/* Requer envolver a <img> com <div class="capa-3d" data-titulo="..."> no Index.cshtml — ver instruções */
+
+.capa-3d {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    transform-style: preserve-3d;
+    transform-origin: left bottom; /* dobradiça na base esquerda, livro "apoiado" */
+    transform: rotateX(var(--tilt-topo)) rotateY(var(--angulo-capa));
+    transition: transform 0.5s cubic-bezier(.22, .9, .32, 1);
+}
+
+.card:hover .capa-3d {
+    transform: rotateX(0deg) rotateY(0deg); /* de frente 100% no hover, sem inclinação nenhuma */
+}
+
+.capa-3d img.card-img-top {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px 14px 0 0;
+    border-bottom: 4px solid var(--gold);
+    background-color: #e4d9c2; /* aparece se a capa não carregar */
+    box-shadow: 6px 10px 20px rgba(28, 27, 42, 0.35);
+    backface-visibility: hidden;
+}
+
+/* capa genérica quando o livro não tem imagem cadastrada */
+
+.capa-3d .capa-generica {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.2rem;
+    background: linear-gradient(160deg, var(--wine), var(--wine-dark));
+    border-radius: 2px 14px 0 0;
+    border-bottom: 4px solid var(--gold);
+    box-shadow: 6px 10px 20px rgba(28, 27, 42, 0.35);
+    backface-visibility: hidden;
+}
+
+    .capa-3d .capa-generica span {
+        font-family: "Fraunces", Georgia, serif;
+        font-style: italic;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+/* bloco de páginas no topo — mesma lógica de dobradiça da lombada, só que no eixo X */
+
+.capa-3d::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 94%;
+    height: var(--espessura-lombada);
+    transform-origin: top center;
+    transform: rotateX(90deg);
+    background: #efe6d0;
+    box-shadow: inset 0 -6px 8px rgba(0, 0, 0, 0.25), inset 0 2px 3px rgba(0, 0, 0, 0.15);
+    border-radius: 0px 0px 5px 0;
+}
+
+.capa-3d::before {
+    content: attr(data-titulo);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--espessura-lombada);
+    height: 100%;
+    background: var(--wine);
+    transform-origin: left center;
+    transform: rotateY(-90deg); /* perpendicular à capa, formando o "L" do livro */
+    writing-mode: vertical-rl;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem 0;
+    box-shadow: inset -6px 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 2px 0 0 2px;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 1.25rem 0.5rem 0.75rem;
+}
+
+.card-title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* ---------- formulários (Criar / Editar) ---------- */
+
+.mb-3 > label {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    background-color: #ffffff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+    .form-control:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+        outline: none;
+    }
+
+    .form-control::placeholder {
+        color: var(--text-light);
+    }
+
+input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--accent);
+    vertical-align: middle;
+}
+
+input[type="file"].form-control {
+    border: 2px dashed var(--border);
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+}
+
+    input[type="file"].form-control:hover {
+        border-color: var(--accent);
+    }
+
+/* ---------- página de detalhes ---------- */
+
+.col-md-4 > img.img-fluid {
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    border-radius: 12px;
+}
+
+.col-md-8 p {
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+    .col-md-8 p strong {
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-right: 0.5rem;
+    }
+
+/* ---------- melhorias gerais ---------- */
+
+/* Espaçamento e responsividade do grid */
+.row.g-4 {
+    margin: 0 auto;
+    max-width: 100%;
+    padding-top: 0.5rem;
+}
+
+/* Espaçamento vertical entre cards */
+.col-md-3.mb-4 {
+    margin-bottom: 1.25rem !important;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Seleção de texto personalizada */
+::selection {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* Barra de rolagem minimalista */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 5px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-hover);
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main[role="main"] {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .page-header {
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .row {
+        gap: 1rem;
+    }
+
+    .col-md-3.mb-4 {
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* ---------- barra de estatísticas ---------- */
+
+.stats-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+}
+
+    .stats-bar strong {
+        color: var(--text-primary);
+    }
+
+.stats-dot {
+    color: var(--border);
+}
+
+/* ---------- busca e abas de filtro (decorativos) ---------- */
+
+.busca-filtros {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.campo-busca {
+    width: 100%;
+    max-width: 420px;
+    padding: 0.75rem 1.1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+    .campo-busca:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+    }
+
+.abas-filtro {
+    display: flex;
+    gap: 0.5rem;
+    background-color: var(--bg-primary);
+    padding: 0.3rem;
+    border-radius: 10px;
+}
+
+.aba-filtro {
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1.1rem;
+    border-radius: 8px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .aba-filtro.ativa {
+        background-color: #ffffff;
+        color: var(--text-primary);
+        box-shadow: var(--shadow-sm);
+    }
+
+/* ---------- selos e tag de gênero nos cards ---------- */
+
+.tag-genero {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent-hover);
+    background-color: rgba(212, 165, 116, 0.15);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    margin-bottom: 0.6rem;
+}
+
+.selo {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    margin-left: 0.4rem;
+}
+
+.selo-novo {
+    background-color: #dcfce7;
+    color: #16803c;
+}
+
+.selo-destaque {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+/* ---------- avatar decorativo na navbar ---------- */
+
+.avatar-usuario {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+/* ---------- rodapé com colunas ---------- */
+
+.footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: 0.5rem;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 180px;
+}
+
+    .footer-col strong {
+        color: var(--text-primary);
+        margin-bottom: 0.3rem;
+    }
+
+    .footer-col a {
+        color: var(--text-secondary);
+        font-size: 0.88rem;
+    }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+.footer-copy {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-light);
+}
+
+/* ---------- toolbar: botão à esquerda, busca+filtros à direita ---------- */
+
+.toolbar-lista {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+    .toolbar-lista .busca-filtros {
+        flex-direction: row;
+        margin-bottom: 0;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .toolbar-lista .campo-busca {
+        max-width: 260px;
+    }

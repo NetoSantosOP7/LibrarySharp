@@ -1,0 +1,28 @@
+﻿@model Dictionary<string, object>
+
+@{
+    ViewData["Title"] = "Detalhes do livro";
+}
+
+<div class="row">
+
+    <div class="col-md-4">
+        <img src="~/imagens/@Model["CaminhoImagem"]" class="img-fluid" alt="Alternate Text" />
+    </div>
+
+    <div class="col-md-8">
+    <h1>@Model["Titulo"]</h1>
+        <p><strong>Autor:</strong> @Model["Autor"]</p>
+        <p><strong>Ano de Publicação:</strong> @Model["AnoPublicacao"]</p>
+        <p>
+            <strong>Status:</strong>
+            @((bool)Model["Disponivel"] ? "Disponível" : "Indisponível")
+            
+        </p>
+
+        <a href="/Livro/Editar/@Model["Id"]" class="btn btn-warning">Editar livro</a>
+        <a href="/Livro/Deletar/@Model["Id"]" class="btn btn-danger">Excluir Livro</a>
+        <a href="/Livro" class="btn btn-secondary">Voltar para a lista</a>
+
+    </div>
+</div>

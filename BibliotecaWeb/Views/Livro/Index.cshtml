@@ -1,0 +1,80 @@
+﻿@using System.Linq
+@model List<Dictionary<string, object>>
+
+<div class="page-header">
+    <h1>Biblioteca de Livros</h1>
+    <div class="stats-bar">
+        <span><strong>@Model.Count</strong> livros</span>
+        <span class="stats-dot">•</span>
+        <span><strong>@Model.Select(l => l["Autor"]).Distinct().Count()</strong> autores</span>
+        <span class="stats-dot">•</span>
+        <span><strong>@Model.Count(l => (bool)l["Disponivel"])</strong> disponíveis</span>
+    </div>
+
+</div>
+
+<div class="toolbar-lista">
+    <a href="/Livro/Criar" class="btn btn-primary">Cadastrar novo livro</a>
+    <div class="busca-filtros">
+        <input type="search" class="campo-busca" placeholder="Buscar por título ou autor..." />
+        <div class="abas-filtro">
+            <button type="button" class="aba-filtro ativa" onclick="document.querySelectorAll('.aba-filtro').forEach(b=>b.classList.remove('ativa'));this.classList.add('ativa')">Todos</button>
+            <button type="button" class="aba-filtro" onclick="document.querySelectorAll('.aba-filtro').forEach(b=>b.classList.remove('ativa'));this.classList.add('ativa')">Disponíveis</button>
+            <button type="button" class="aba-filtro" onclick="document.querySelectorAll('.aba-filtro').forEach(b=>b.classList.remove('ativa'));this.classList.add('ativa')">Indisponíveis</button>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4" id="grid-livros">
+    @{
+        int contador = 0;
+        string[] generos = { "Mangá", "Quadrinhos", "Ficção", "Religioso" };
+    }
+    @foreach (var livro in Model)
+    {
+        contador++;
+        <div class="col-md-3 mb-4" data-id="@livro["Id"]">
+            <div class="card h-100">
+                <div class="capa-3d" data-titulo="@livro["Titulo"]">
+                    <img src="~/imagens/@livro["CaminhoImagem"]" class="card-img-top" />
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@livro["Titulo"]</h5>
+                    <p class="card-text">@livro["Autor"]</p>
+                    <span class="tag-genero">@generos[contador % generos.Length]</span>
+
+                    @if (contador == 1)
+                    {
+                        <span class="selo selo-destaque">Mais lido</span>
+                    }
+                    else if (contador == 3 || contador == 8)
+                    {
+                        <span class="selo selo-novo">Novo</span>
+                    }
+                    <a href="/Livro/Detalhes/@livro["Id"]" class="btn btn-outline-secondary">Ver detalhes</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+    <script>
+        new Sortable(document.getElementById('grid-livros'), {
+            animation: 150,
+            onEnd: function () {
+                var itens = document.getElementById('grid-livros').children;
+                var ids = Array.from(itens).map(function (item) {
+                    return item.dataset.id;
+                });
+
+                fetch('/Livro/ReordenarLivros', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(ids)
+                });
+            }
+        });
+    </script>
+}
